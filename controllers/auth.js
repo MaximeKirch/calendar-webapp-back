@@ -1,6 +1,7 @@
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const user = require('../models/user')
 
 exports.signup = (req, res, next) => {
   console.log(req.body)
@@ -52,4 +53,9 @@ exports.login = (req, res, next) => {
         .catch((error) => res.status(500).json({ error }))
     })
     .catch((error) => res.status(500).json({ error }))
+}
+
+exports.logout = (req,res,next) => {
+  res.clearCookie('jwt').json({message : "You have been logged out successfully"})
+  .catch((error) => res.status(400).json({error}))
 }
