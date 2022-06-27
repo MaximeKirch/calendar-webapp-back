@@ -5,6 +5,7 @@ const dotenv = require('dotenv')
 const bodyparser = require('body-parser')
 const userRoutes = require('./routes/user')
 const authRoutes = require('./routes/auth')
+const workerRoutes = require('./routes/worker')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const PORT =  process.env.PORT || 3001 
@@ -27,6 +28,7 @@ app.use(bodyparser.urlencoded({extended : false}))
 app.use(bodyparser.json())
 app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
+app.use('/api/worker', workerRoutes)
 
 
 app.get('/api', (req, res) => {

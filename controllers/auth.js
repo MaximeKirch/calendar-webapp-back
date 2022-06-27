@@ -57,5 +57,4 @@ exports.login = (req, res, next) => {
 
 exports.logout = (req,res,next) => {
   res.clearCookie('jwt').json({message : "You have been logged out successfully"})
-  .catch((error) => res.status(400).json({error}))
 }
