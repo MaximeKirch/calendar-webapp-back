@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 
 exports.getAllWorkers = (req, res, next) => {
     Worker.find().select('-password').then(
-        (users) => {
-            res.status(200).json({users})
+        (workers) => {
+            res.status(200).json({workers})
         }
     ).catch(
         (error) => {
