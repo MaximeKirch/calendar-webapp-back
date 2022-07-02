@@ -43,7 +43,7 @@ exports.modifyWorker = (req, res, next) => {
                         })
                     }
                     if(worker.id !== req.auth.userId) {
-                        res.status(400).json({
+                        res.status(401).json({
                             error: new Error('Unauthorized request !')
                         })
                     }
